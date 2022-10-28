@@ -98,9 +98,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    builder
+
     private void send_alert(String msg) {
-        AlertDialog.Builder  = new AlertDialog.Builder(MainActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setMessage(msg)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override

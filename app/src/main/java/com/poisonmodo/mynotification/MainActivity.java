@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -97,14 +98,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    builder
     private void send_alert(String msg) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        AlertDialog.Builder  = new AlertDialog.Builder(MainActivity.this);
         builder.setMessage(msg)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        Intent j = new Intent(MainActivity.this,HomeActivity.class);
+                        startActivity(j);
+                        finish();
                     }
                 })
                 .setTitle(getResources().getString(R.string.app_name));

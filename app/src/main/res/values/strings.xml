@@ -7,4 +7,7 @@
     <string name="msg_subscribed">Subscribe</string>
     <string name="msg_subscribe_failed">Subscribe Failed</string>
     <string name="msg_token_fmt">Token</string>
+    <string name="logintitle">Login</string>
+    <string name="email_remark">Silakan isi Alamat E-Mail</string>
+    <string name="txtphone">No Telepon</string>
 </resources>

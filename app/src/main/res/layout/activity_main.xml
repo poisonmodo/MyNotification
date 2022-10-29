@@ -25,17 +25,42 @@
                 android:text="@string/txtlogintitle" />
 
             <TextView
+                android:id="@+id/txtphone"
                 android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/txtemail" />
+                android:text="@string/txtphone" />
 
-            <EditText
-                android:layout_margin="5dp"
-                android:id="@+id/email"
-                android:inputType="textEmailAddress"
+            <RelativeLayout
+                android:id="@+id/ll_country"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/countrycode"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    app:ccp_autoDetectCountry="true"
+                    app:ccp_showNameCode="false"
+                    app:ccp_textSize="15dp" />
+
+                <EditText
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toRightOf="@+id/countrycode"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="5dp"
+                    android:id="@+id/phone"
+                    android:inputType="textEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
 
             <TextView
                 android:layout_margin="5dp"

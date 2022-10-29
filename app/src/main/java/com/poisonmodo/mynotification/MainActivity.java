@@ -1,7 +1,5 @@
 package com.poisonmodo.mynotification;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,22 +7,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.poisonmodo.mynotification.R;
+import com.hbb20.CountryCodePicker;
 import com.poisonmodo.mynotification.json.UserRequestJson;
 import com.poisonmodo.mynotification.json.UserResponseJson;
 import com.poisonmodo.mynotification.utils.APIClient;
@@ -34,14 +28,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText email, pass;
+    private EditText phone, pass;
+    private CountryCodePicker ccp;
     private Button loginbtn;
     private String token="";
     LinearLayout rl_progress;
@@ -53,14 +47,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        rl_progress = findViewById(R.id.rl_progress);
-        email = findViewById(R.id.email);
-        pass = findViewById(R.id.pass);
-        loginbtn = findViewById(R.id.loginbtn);
-        txttoken = findViewById(R.id.token);
-
-        rl_progress.setVisibility(View.GONE);
 
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
@@ -81,16 +67,22 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+        rl_progress = findViewById(R.id.rl_progress);
+        ccp = findViewById(R.id.countrycode);
+        phone = findViewById(R.id.phone);
+        pass = findViewById(R.id.pass);
+        loginbtn = findViewById(R.id.loginbtn);
+        txttoken = findViewById(R.id.token);
+
+        rl_progress.setVisibility(View.GONE);
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 rl_progress.setVisibility(View.VISIBLE);
                 UserRequestJson req = new UserRequestJson();
-                req.email=email.getText().toString();
-                req.password=pass.getText().toString();
 
-                if(email.getText().toString().isEmpty()) {
+                if(phone.getText().toString().isEmpty()) {
                     rl_progress.setVisibility(View.GONE);
                     send_alert("Please fill email address");
                 }
@@ -99,6 +91,14 @@ public class MainActivity extends AppCompatActivity {
                     send_alert("Please fill password");
                 }
                 else {
+                    String tmp_phone = phone.getText().toString();
+                    tmp_phone=tmp_phone.replaceAll("[^0-9]","");
+                    
+
+                    req.countrycode= ccp.getFullNumber()
+                    req.phone= phone.getText().toString();
+                    req.password=pass.getText().toString();
+
                     UserService userService = APIClient.getClient().create(UserService.class);
 
                     Call<UserResponseJson> call = userService.login(req);

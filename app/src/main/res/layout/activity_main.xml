@@ -56,6 +56,13 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/loginbtn"
                 android:text="Login" />
+
+            <TextView
+                android:layout_margin="5dp"
+                android:id="@+id/token"
+                android:hint="Token here"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
         <include layout="@layout/progresslayout" />
     </FrameLayout>

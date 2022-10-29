@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "863857277727",
+    "project_id": "mynotification-a064b",
+    "storage_bucket": "mynotification-a064b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863857277727:android:90c83c99df2842e7900e2a",
+        "android_client_info": {
+          "package_name": "com.poisonmodo.mynotification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "863857277727-m6qpfbboa6236ies7e1tbkg1ns4cn1de.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.poisonmodo.mynotification",
+            "certificate_hash": "47e6e6d910762c6ae2b229ea2cf3b0f4e62444da"
+          }
+        },
+        {
+          "client_id": "863857277727-cadlevdu70568sq040p8d5i0psaoiov1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA1u3XdjppgjuJsG8EL1Wsqr19y43sNY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "863857277727-cadlevdu70568sq040p8d5i0psaoiov1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

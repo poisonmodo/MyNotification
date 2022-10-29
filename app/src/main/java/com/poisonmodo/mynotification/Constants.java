@@ -1,7 +1,7 @@
 package com.poisonmodo.mynotification;
 
 public class Constants {
-    private String BASEURL ="http://192.168.0.108:8000/";
+    private String BASEURL ="http://10.0.2.2:8000/";
     private String APIURL = getBASEURL() +"api/v1/";
 
     public Constants() {

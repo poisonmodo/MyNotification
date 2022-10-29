@@ -3,4 +3,8 @@
     <string name="txtemail">E-Mail Address</string>
     <string name="txtpass">Password</string>
     <string name="txtlogintitle">Login</string>
+    <string name="fcm_message">FCM</string>
+    <string name="msg_subscribed">Subscribe</string>
+    <string name="msg_subscribe_failed">Subscribe Failed</string>
+    <string name="msg_token_fmt">Token</string>
 </resources>

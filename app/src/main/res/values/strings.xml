@@ -10,4 +10,6 @@
     <string name="logintitle">Login</string>
     <string name="email_remark">Silakan isi Alamat E-Mail</string>
     <string name="txtphone">No Telepon</string>
+    <string name="otptitle">Verifikasi OTP</string>
+    <string name="otp_remark">Masukkan Kode OTP yang Anda terima SMS OTP</string>
 </resources>
